@@ -10,8 +10,9 @@ export class ProductsService {
 
   constructor(@InjectModel(Products.name) private productModel: Model<Products>) {}
 
-  create(createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+  async create(createProductDto: CreateProductDto):Promise<any> {
+    const createdProduct = this.productModel.create(createProductDto);
+    return createdProduct;
   }
 
   async findAll():Promise<any> {
