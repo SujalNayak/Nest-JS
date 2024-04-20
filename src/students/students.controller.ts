@@ -13,6 +13,7 @@ export class StudentsController {
     return res.status(HttpStatus.CREATED).json({
       message: 'Student created successfully',
       data: await this.studentsService.create(createStudentDto)
+  
     })
   }
 
