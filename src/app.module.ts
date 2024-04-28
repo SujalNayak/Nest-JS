@@ -6,10 +6,18 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Product } from './products/entities/product.entity';
 import { StudentsModule } from './students/students.module';
 import { CategoryModule } from './category/category.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/nestjs'), ProductsModule, StudentsModule, CategoryModule],
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/nestjs'),
+    ProductsModule,
+    StudentsModule,
+    CategoryModule,
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
